@@ -1,0 +1,21 @@
+{
+  "name": "moai-frontend",
+  "author": {
+    "name": "moaikang",
+    "email": "moaikang.dev@gmail.com"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "license": "UNLICENSED",
+  "packageManager": "yarn@3.5.0",
+  "workspaces": [
+    "configs/*",
+    "services/*",
+    "packages/*",
+    "devops/*"
+  ],
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
