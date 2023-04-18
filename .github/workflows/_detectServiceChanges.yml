@@ -1,0 +1,25 @@
+name: Detect service changes
+
+on:
+  workflow_call:
+    outputs:
+      hasChanges: 
+        description: 서비스 코드에 변경사항이 있는지 확인
+        value: ${{ jobs.services_changes.outputs.hasChanges }}
+
+jobs:
+  services_changes:
+    name: 서비스 변경사항 체크
+    runs-on: [self-hosted, linux, live]
+    outputs:
+      hasChanges: ${{ steps.filter.outputs.hasChanges }}
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - uses: dorny/paths-filter@v2.11.1
+      id: filter
+      with:
+        filters: |
+          hasChanges:
+            - '!((.github/workflows/**)|(e2e/**)|(devops/**)|(**/*.md)|(**/.vscode/**))'
