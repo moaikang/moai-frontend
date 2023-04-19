@@ -10,8 +10,8 @@ concurrency:
 
 jobs:
   - name: Create comment
-   uses: thollander/actions-comment-pull-request@v2
-   with:
+  uses: thollander/actions-comment-pull-request@v2
+  with:
     message: |
       Hello world ! :wave:
     GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
